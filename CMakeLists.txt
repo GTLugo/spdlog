@@ -25,10 +25,11 @@ endif()
 # ---------------------------------------------------------------------------------------
 # Compiler config
 # ---------------------------------------------------------------------------------------
-if(NOT CMAKE_CXX_STANDARD)
-    set(CMAKE_CXX_STANDARD 11)
-    set(CMAKE_CXX_STANDARD_REQUIRED ON)
-endif()
+# set(CMAKE_CXX_STANDARD 23)
+# if(NOT CMAKE_CXX_STANDARD)
+#     set(CMAKE_CXX_STANDARD 11)
+#     set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# endif()
 
 # make sure __cplusplus is defined when using msvc and enable parallel build
 if(MSVC)
@@ -189,6 +190,8 @@ endif()
 # ---------------------------------------------------------------------------------------
 add_library(spdlog_header_only INTERFACE)
 add_library(spdlog::spdlog_header_only ALIAS spdlog_header_only)
+target_compile_features(spdlog PRIVATE cxx_std_23) # ADDED BY GTLUGO
+target_compile_features(spdlog_header_only INTERFACE cxx_std_23) # ADDED BY GTLUGO
 
 target_include_directories(spdlog_header_only INTERFACE "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>"
                                                         "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
@@ -250,10 +253,10 @@ if(SPDLOG_NO_EXCEPTIONS AND NOT MSVC)
     target_compile_options(spdlog PRIVATE -fno-exceptions)
 endif()
 
-if(SPDLOG_USE_STD_FORMAT)
-    set(CMAKE_CXX_STANDARD 20)
-    set(CMAKE_CXX_STANDARD_REQUIRED ON)
-endif()
+# if(SPDLOG_USE_STD_FORMAT)
+#     set(CMAKE_CXX_STANDARD 20)
+#     set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# endif()
 
 # ---------------------------------------------------------------------------------------
 # Build binaries
