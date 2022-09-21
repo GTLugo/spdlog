@@ -110,7 +110,7 @@
 // Uncomment to customize short level names (e.g. "MT")
 // These can be longer than one character.
 //
-#define SPDLOG_SHORT_LEVEL_NAMES { "TRCE", "DEBG", "INFO", "WARN", "ERRR", "CRIT", "OFF-" }
+#define SPDLOG_SHORT_LEVEL_NAMES { "TRCE", "DEBG", "INFO", "WARN", "ERRR", "FATL", "OFF-" }
 ///////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////
